@@ -1,0 +1,526 @@
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\mbran>git
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+C:\Users\mbran>git config --global --list
+gui.recentrepo=C:/Users/mbran/OneDrive/Documents/codingdojo
+user.email=Mbranaman89@gmail.com
+
+C:\Users\mbran>git config --global user.name Branaman
+
+C:\Users\mbran>git config --global --list
+gui.recentrepo=C:/Users/mbran/OneDrive/Documents/codingdojo
+user.email=Mbranaman89@gmail.com
+user.name=Branaman
+
+C:\Users\mbran>git config --global color.ui "auto"
+
+C:\Users\mbran>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran
+
+07/18/2017  08:50 AM    <DIR>          .
+07/18/2017  08:50 AM    <DIR>          ..
+07/17/2017  11:54 AM    <DIR>          .atom
+07/18/2017  08:50 AM               139 .gitconfig
+07/17/2017  04:49 PM    <DIR>          .ssh
+07/01/2017  12:58 PM    <DIR>          .vscode
+07/02/2017  04:19 PM    <DIR>          Contacts
+07/17/2017  05:07 PM    <DIR>          Desktop
+07/02/2017  04:19 PM    <DIR>          Documents
+07/17/2017  04:14 PM    <DIR>          Downloads
+07/17/2017  08:10 PM    <DIR>          Favorites
+07/02/2017  04:21 PM    <DIR>          Links
+07/02/2017  04:19 PM    <DIR>          Music
+07/17/2017  03:25 PM    <DIR>          OneDrive
+07/02/2017  04:19 PM    <DIR>          Pictures
+07/02/2017  04:19 PM    <DIR>          Saved Games
+07/17/2017  03:22 PM    <DIR>          Searches
+07/02/2017  04:19 PM    <DIR>          Videos
+               1 File(s)            139 bytes
+              17 Dir(s)  86,844,391,424 bytes free
+
+C:\Users\mbran>cd desktop
+
+C:\Users\mbran\Desktop>cd dojoassignments
+
+C:\Users\mbran\Desktop\DojoAssignments>cd new_project
+The system cannot find the path specified.
+
+C:\Users\mbran\Desktop\DojoAssignments>mkdir new_project
+
+C:\Users\mbran\Desktop\DojoAssignments>cd new_project
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>get init
+'get' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git init
+Initialized empty Git repository in C:/Users/mbran/Desktop/DojoAssignments/new_project/.git/
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        aboutMe.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git add aboutMe.txt
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git commit -m "aboutMe.txt added"
+[master (root-commit) 1714536] aboutMe.txt added
+ 1 file changed, 3 insertions(+)
+ create mode 100644 aboutMe.txt
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git log
+commit 1714536f4c98f957db42bb288000b90cfe01c765 (HEAD -> master)
+Author: Branaman <Mbranaman89@gmail.com>
+Date:   Tue Jul 18 12:24:47 2017 -0700
+
+    aboutMe.txt added
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git add aboutMe.txt
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git commit -M "added fav quote"
+error: unknown switch `M'
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git add aboutMe.txt
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git log
+commit 1714536f4c98f957db42bb288000b90cfe01c765 (HEAD -> master)
+Author: Branaman <Mbranaman89@gmail.com>
+Date:   Tue Jul 18 12:24:47 2017 -0700
+
+    aboutMe.txt added
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>ls
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop\DojoAssignments\new_project
+
+07/18/2017  12:24 PM    <DIR>          .
+07/18/2017  12:24 PM    <DIR>          ..
+07/18/2017  12:23 PM                76 aboutMe.txt
+               1 File(s)             76 bytes
+               2 Dir(s)  87,240,634,368 bytes free
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git add .
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git add aboutMe.txt
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>git diff
+
+C:\Users\mbran\Desktop\DojoAssignments\new_project>cd ..
+
+C:\Users\mbran\Desktop\DojoAssignments>git commit
+fatal: Not a git repository (or any of the parent directories): .git
+
+C:\Users\mbran\Desktop\DojoAssignments>git init
+Initialized empty Git repository in C:/Users/mbran/Desktop/DojoAssignments/.git/
+
+C:\Users\mbran\Desktop\DojoAssignments>git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+
+C:\Users\mbran\Desktop\DojoAssignments>git add /
+fatal: /: '/' is outside repository
+
+C:\Users\mbran\Desktop\DojoAssignments>git add .
+
+C:\Users\mbran\Desktop\DojoAssignments>git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   MEAN/about.txt
+        new file:   Python/about.txt
+        new file:   Ruby/about.txt
+        new file:   WebFundamentals/CSS/about.txt
+        new file:   WebFundamentals/Git/MITRerminus.png
+        new file:   WebFundamentals/Git/about.txt
+        new file:   WebFundamentals/Git/aboutMe.txt
+        new file:   WebFundamentals/Git/assignments.txt
+        new file:   WebFundamentals/HTML/Fake Blog.html
+        new file:   WebFundamentals/HTML/about.txt
+        new file:   WebFundamentals/HTML/commands.txt
+        new file:   WebFundamentals/HTML/form.html
+        new file:   WebFundamentals/HTML/helloworld.html
+        new file:   WebFundamentals/HTML/indentation.html
+        new file:   WebFundamentals/Javascript/about.txt
+        new file:   WebFundamentals/about.txt
+        new file:   iOS/about.txt
+        new file:   netCore/about.txt
+        new file:   new_project
+
+
+C:\Users\mbran\Desktop\DojoAssignments>git commit -m "Dojo Repo Added"
+[master (root-commit) ee0de5b] Dojo Repo Added
+ 19 files changed, 369 insertions(+)
+ create mode 100644 MEAN/about.txt
+ create mode 100644 Python/about.txt
+ create mode 100644 Ruby/about.txt
+ create mode 100644 WebFundamentals/CSS/about.txt
+ create mode 100644 WebFundamentals/Git/MITRerminus.png
+ create mode 100644 WebFundamentals/Git/about.txt
+ create mode 100644 WebFundamentals/Git/aboutMe.txt
+ create mode 100644 WebFundamentals/Git/assignments.txt
+ create mode 100644 WebFundamentals/HTML/Fake Blog.html
+ create mode 100644 WebFundamentals/HTML/about.txt
+ create mode 100644 WebFundamentals/HTML/commands.txt
+ create mode 100644 WebFundamentals/HTML/form.html
+ create mode 100644 WebFundamentals/HTML/helloworld.html
+ create mode 100644 WebFundamentals/HTML/indentation.html
+ create mode 100644 WebFundamentals/Javascript/about.txt
+ create mode 100644 WebFundamentals/about.txt
+ create mode 100644 iOS/about.txt
+ create mode 100644 netCore/about.txt
+ create mode 160000 new_project
+
+C:\Users\mbran\Desktop\DojoAssignments>git remote add origin https://github.com/Branaman/codingassignments.git
+
+C:\Users\mbran\Desktop\DojoAssignments>git push -u origin master
+Counting objects: 15, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (15/15), 631.67 KiB | 0 bytes/s, done.
+Total 15 (delta 0), reused 0 (delta 0)
+To https://github.com/Branaman/codingassignments.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+C:\Users\mbran\Desktop\DojoAssignments>..
+'..' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\mbran\Desktop\DojoAssignments>cd ..
+
+C:\Users\mbran\Desktop>md gittest
+
+C:\Users\mbran\Desktop>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop
+
+07/18/2017  12:52 PM    <DIR>          .
+07/18/2017  12:52 PM    <DIR>          ..
+07/17/2017  11:29 AM             2,247 Atom.lnk
+07/18/2017  12:43 PM    <DIR>          DojoAssignments
+07/18/2017  12:52 PM    <DIR>          gittest
+07/17/2017  11:21 AM             2,305 Mattermost.lnk
+07/17/2017  05:02 PM    <DIR>          Test
+06/30/2017  09:21 PM               815 Windows 10 Upgrade Assistant.lnk
+               3 File(s)          5,367 bytes
+               5 Dir(s)  87,239,151,616 bytes free
+
+C:\Users\mbran\Desktop>cd gittest
+
+C:\Users\mbran\Desktop\gittest>git init
+Initialized empty Git repository in C:/Users/mbran/Desktop/gittest/.git/
+
+C:\Users\mbran\Desktop\gittest>md copy null index.html
+
+C:\Users\mbran\Desktop\gittest>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop\gittest
+
+07/18/2017  12:52 PM    <DIR>          .
+07/18/2017  12:52 PM    <DIR>          ..
+07/18/2017  12:52 PM    <DIR>          copy
+07/18/2017  12:52 PM    <DIR>          index.html
+07/18/2017  12:52 PM    <DIR>          null
+               0 File(s)              0 bytes
+               5 Dir(s)  87,239,532,544 bytes free
+
+C:\Users\mbran\Desktop\gittest>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop\gittest
+
+07/18/2017  12:53 PM    <DIR>          .
+07/18/2017  12:53 PM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  87,239,024,640 bytes free
+
+C:\Users\mbran\Desktop\gittest>copy nul index.html
+        1 file(s) copied.
+
+C:\Users\mbran\Desktop\gittest>copy nul styles.css
+        1 file(s) copied.
+
+C:\Users\mbran\Desktop\gittest>copy nul aboutMe.txt
+        1 file(s) copied.
+
+C:\Users\mbran\Desktop\gittest>git add .
+
+C:\Users\mbran\Desktop\gittest>git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   aboutMe.txt
+        new file:   index.html
+        new file:   styles.css
+
+
+C:\Users\mbran\Desktop\gittest>git commit -m "Added aboutMe, index, styles"
+[master (root-commit) 8d39f90] Added aboutMe, index, styles
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 aboutMe.txt
+ create mode 100644 index.html
+ create mode 100644 styles.css
+
+C:\Users\mbran\Desktop\gittest>git add .
+
+C:\Users\mbran\Desktop\gittest>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+
+C:\Users\mbran\Desktop\gittest>git commit -m "added random text"
+[master c00eabc] added random text
+ 1 file changed, 7 insertions(+)
+
+C:\Users\mbran\Desktop\gittest>git add .
+
+C:\Users\mbran\Desktop\gittest>git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+
+C:\Users\mbran\Desktop\gittest>git diff
+
+C:\Users\mbran\Desktop\gittest>git diff aboutMe.txt
+
+C:\Users\mbran\Desktop\gittest>git commit -m "added Fav Movie to aboutMe"
+[master 4fe0f62] added Fav Movie to aboutMe
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+C:\Users\mbran\Desktop\gittest>git log
+commit 4fe0f62898ca5753a914849f1ac82a747c420379 (HEAD -> master)
+Author: Branaman <Mbranaman89@gmail.com>
+Date:   Tue Jul 18 12:57:57 2017 -0700
+
+    added Fav Movie to aboutMe
+
+commit c00eabc78eb4bdf9a865fc49b6f6e32fe9fb0da8
+Author: Branaman <Mbranaman89@gmail.com>
+Date:   Tue Jul 18 12:56:46 2017 -0700
+
+    added random text
+
+commit 8d39f90b6c3ea33ce024f534b90a46a5b836c3c2
+Author: Branaman <Mbranaman89@gmail.com>
+Date:   Tue Jul 18 12:55:30 2017 -0700
+
+    Added aboutMe, index, styles
+
+C:\Users\mbran\Desktop\gittest>git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+C:\Users\mbran\Desktop\gittest>git revert -n
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add Signed-off-by:
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+C:\Users\mbran\Desktop\gittest>git revert -n HEAD
+
+C:\Users\mbran\Desktop\gittest>git add .
+
+C:\Users\mbran\Desktop\gittest>git status
+On branch master
+You are currently reverting commit 4fe0f62.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   aboutMe.txt
+
+
+C:\Users\mbran\Desktop\gittest>git commit -m "added favorite book"
+[master 80e4084] added favorite book
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\mbran\Desktop\gittest>
