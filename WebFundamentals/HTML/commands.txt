@@ -1,0 +1,104 @@
+C:\Users\mbran>cd desktop
+
+C:\Users\mbran\Desktop>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop
+
+07/17/2017  04:33 PM    <DIR>          .
+07/17/2017  04:33 PM    <DIR>          ..
+07/17/2017  11:29 AM             2,247 Atom.lnk
+07/17/2017  04:33 PM    <DIR>          destination
+07/17/2017  11:21 AM             2,305 Mattermost.lnk
+07/17/2017  04:32 PM    <DIR>          Test
+06/30/2017  09:21 PM               815 Windows 10 Upgrade Assistant.lnk
+               3 File(s)          5,367 bytes
+               4 Dir(s)  88,671,883,264 bytes free
+
+C:\Users\mbran\Desktop>move /test/index_2.html /destination
+The system cannot find the path specified.
+
+C:\Users\mbran\Desktop>move \test\index_2.html \destination
+The system cannot find the file specified.
+
+C:\Users\mbran\Desktop>move \test\index_2.html \destination\index_2.html
+The system cannot find the file specified.
+
+C:\Users\mbran\Desktop>cd test
+
+C:\Users\mbran\Desktop\Test>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop\Test
+
+07/17/2017  04:32 PM    <DIR>          .
+07/17/2017  04:32 PM    <DIR>          ..
+07/17/2017  04:31 PM                 0 commands.txt
+07/17/2017  04:30 PM                 0 css.html
+07/17/2017  04:30 PM                 0 index.html
+07/17/2017  04:30 PM                 0 index_2.html
+               4 File(s)              0 bytes
+               2 Dir(s)  88,672,161,792 bytes free
+
+C:\Users\mbran\Desktop\Test>move index_2.html ..\
+        1 file(s) moved.
+
+C:\Users\mbran\Desktop\Test>cd ..
+
+C:\Users\mbran\Desktop>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop
+
+07/17/2017  05:02 PM    <DIR>          .
+07/17/2017  05:02 PM    <DIR>          ..
+07/17/2017  11:29 AM             2,247 Atom.lnk
+07/17/2017  04:33 PM    <DIR>          destination
+07/17/2017  04:30 PM                 0 index_2.html
+07/17/2017  11:21 AM             2,305 Mattermost.lnk
+07/17/2017  05:02 PM    <DIR>          Test
+06/30/2017  09:21 PM               815 Windows 10 Upgrade Assistant.lnk
+               4 File(s)          5,367 bytes
+               4 Dir(s)  88,671,903,744 bytes free
+
+C:\Users\mbran\Desktop>move index_2.html .\destination
+        1 file(s) moved.
+
+C:\Users\mbran\Desktop>cd destination
+
+C:\Users\mbran\Desktop\destination>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop\destination
+
+07/17/2017  05:02 PM    <DIR>          .
+07/17/2017  05:02 PM    <DIR>          ..
+07/17/2017  04:30 PM                 0 index_2.html
+               1 File(s)              0 bytes
+               2 Dir(s)  88,672,231,424 bytes free
+
+C:\Users\mbran\Desktop\destination>cd..
+
+C:\Users\mbran\Desktop>rd /s destination
+destination, Are you sure (Y/N)? Y
+
+C:\Users\mbran\Desktop>dir
+ Volume in drive C is Local Disk
+ Volume Serial Number is DAD9-FB3C
+
+ Directory of C:\Users\mbran\Desktop
+
+07/17/2017  05:03 PM    <DIR>          .
+07/17/2017  05:03 PM    <DIR>          ..
+07/17/2017  11:29 AM             2,247 Atom.lnk
+07/17/2017  11:21 AM             2,305 Mattermost.lnk
+07/17/2017  05:02 PM    <DIR>          Test
+06/30/2017  09:21 PM               815 Windows 10 Upgrade Assistant.lnk
+               3 File(s)          5,367 bytes
+               3 Dir(s)  88,672,063,488 bytes free
+
+C:\Users\mbran\Desktop>
