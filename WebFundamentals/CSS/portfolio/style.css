@@ -1,0 +1,127 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+h1{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    display: inline-block;
+}
+h2{
+  font-size: : 1em;
+  padding: 10px;
+  display: block;
+}
+a{
+  color: black;
+}
+.site{
+    width: 980px;
+}
+#wrapper{
+    padding: 25px;
+    background: linear-gradient(#553344, #aa99aa, #553344);
+}
+.portfoliotop{
+    padding: 20px;
+    display: block;
+    background: white;
+}
+.footer{
+    padding: 20px;
+    display: block;
+    background: white;
+}
+.identity{
+  text-align: center;
+
+}
+.aboutMeheader{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  float: right;
+  margin-top: 0px;
+}
+.profilepic{
+  outline: #eeddee solid thick;
+  height: 275px;
+}
+.chunkphoto{
+  width: 300px;
+}
+.aboutmebuffer{
+  margin: 5px;
+}
+.container{
+  padding: 10px;
+}
+.aboutsection{
+  display: inline-block;
+  width: 475px;
+  height: 275px;
+  float: right;
+  background: linear-gradient(#eeddee, white);
+}
+.gradheader{
+    color: white;
+    background: linear-gradient(#bbbbbb, #888888, #bbbbbb);
+}
+.infoscreen{
+}
+.aboutme{
+  padding: 10px;
+  display: inline-block;
+}
+.bottomchunk{
+  vertical-align: top;
+  display: inline-block;
+  background: linear-gradient(#eeddee, white);
+  width: 300px;
+  height: 410px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+.bottomchunk2{
+  vertical-align: top;
+  display: inline-block;
+  background: linear-gradient(#eeddee, white);
+  width: 300px;
+  margin-right: 10px;
+  margin-top: 0px;
+}
+.bottom3{
+  width: 930px;
+}
+.bottomchunk:last-child{
+  margin-right: 0px;
+}
+.bottomchunk2:last-child{
+  margin-right: 0px;
+}
+.icons{
+  width: 280px;
+  padding: 10px;
+}
+.icon{
+  margin-left: 10px;
+  height: 40px;
+  width: 40px;
+}
+.iconsmall{
+  margin-bottom: -5px;
+  height: 20px;
+  width: 20px;
+}
+.buttons{
+  box-shadow: 5px 5px 5px grey;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  background: green;
+  display: inline;
+}
+.contactinfo{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+}
