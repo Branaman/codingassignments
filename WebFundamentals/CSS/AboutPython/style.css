@@ -123,6 +123,7 @@ h2{
   color: white;
 }
 .whitetextlink::before{
+  font-size: 10px;
   content: ">>";
   color: yellow;
   text-decoration: none;
