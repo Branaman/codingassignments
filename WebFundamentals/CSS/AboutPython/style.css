@@ -10,7 +10,7 @@ h2{
 #site{
   width: 970px;
   height: 800px;
-  background: #225577;
+  background: #245176;
 }
 .header{
   height: 13%;
@@ -86,7 +86,6 @@ h2{
   text-align: center;
 }
 .fancylist{
-    /*text-align: center;*/
     color: white;
     font-size: 16px;
     list-style: none;
@@ -119,7 +118,6 @@ h2{
   color: white;
 }
 .whitetextlink{
-  /*margin-top: 30px;*/
   color: white;
 }
 .whitetextlink::before{
@@ -161,7 +159,7 @@ h2{
   color: #88aacc;
 }
 .footer{
-  background: linear-gradient( #225577 , #88aacc);
+  background: linear-gradient( #245176, #225577, #88aacc);
   height: 12%;
   display: block;
 }

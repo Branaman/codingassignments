@@ -4,7 +4,7 @@
   font-family: sans-serif;
 }
 .site{
-  width: 970px;
+  width: 1020px;
   height: 900px;
   background: white;
   position: relative;
@@ -17,7 +17,7 @@
   color: grey;
   display: inline-block;
   position: absolute;
-  top: 4%;
+  top: 3%;
   left: 10%;
   font-size: 45px;
 }
@@ -50,7 +50,7 @@ h2.blueheader{
 }
 p.info{
   font-weight: bold;
-  font-size: 19px;
+  font-size: 16px;
   margin: 20px 2px;
 }
 .greygradbkg{
@@ -68,12 +68,12 @@ p.info{
   top: 0px;
   display: inline-block;
   height: 100%;
-  width: 27%;
+  width: 23%;
 
 }
 h3.info{
   font-weight: bold;
-  font-size: 23px;
+  font-size: 18px;
   margin: 20px 3px;
 }
 .rightbox{
@@ -82,8 +82,8 @@ h3.info{
   right: 0px;
   display: inline-block;
   height: 100%;
-  width: 71%;
-  padding: 5 10px 0px;
+  width: 75%;
+  padding: 5px 7px 0px;
 }
 .blue{
   width: 90%;
@@ -98,7 +98,7 @@ p.addinfo{
   color: white;
 }
 button{
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -165,7 +165,7 @@ a.home{
 }
 .phone{
   position: relative;
-  right: -46%;
+  right: -50%;
   vertical-align: top;
   display: inline-block;
   width: 50px;
@@ -175,7 +175,7 @@ a.home{
 .contactsheet{
   height: 60%;
   position: relative;
-  right: -46%;
+  right: -50%;
   display: inline-block;
 }
 p.contact{
