@@ -1,0 +1,183 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: sans-serif;
+}
+h2{
+  font-size: 18px;
+}
+#site{
+  width: 970px;
+  height: 800px;
+  background: #225577;
+}
+.header{
+  height: 13%;
+  padding: 10px;
+
+}
+.image{
+  display: inline-block;
+  width: 350px;
+}
+.searchedit{
+  position: relative;
+  left: 325px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  right: 0px;
+}
+.textsize{
+  color: white;
+  text-align: right;
+
+}
+.searchbar{
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px black;
+  background: #555555;
+  padding: 20px;
+
+}
+.bigsmall{
+  color: yellow;
+}
+.go{
+  border: solid white thin;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  background: #2277bb;
+  padding: 7px;
+}
+.searcher{
+  text-align: center;
+  padding: 7px;
+}
+.navbar{
+  margin-left: 7%;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  padding: 15px;
+  width: 85%;
+  height: 3%;
+  text-align: center;
+  background: #2277bb;
+}
+.buttons{
+  margin: 0px 15px;
+  display: inline-block;
+  font-size: 20px;
+  background: none;
+  color: white;
+}
+.content{
+  margin-left: 7%;
+  width: 85%;
+  height: 35%;
+  padding: 15px;
+
+}
+.list{
+  margin-left: 3%;
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+.fancylist{
+    /*text-align: center;*/
+    color: white;
+    font-size: 16px;
+    list-style: none;
+    line-height: 30px;
+    text-decoration: none;
+}
+.infopannel{
+  margin-left: 3%;
+  text-align: center;
+  width: 73%;
+  display: inline-block;
+  vertical-align: top;
+}
+.whitetext{
+  color: white;
+}
+.poem{
+    font-style: italic;
+    font-family: sans-serif;
+    list-style: none;
+    margin-bottom: 20px 0px;
+    font-size: 22px;
+}
+.yellowli{
+  margin: 5px;
+  color: yellow;
+}
+.whitetextli{
+  margin-top: 10px;
+  color: white;
+}
+.whitetextlink{
+  /*margin-top: 30px;*/
+  color: white;
+}
+.whitetextlink::before{
+  content: ">>";
+  color: yellow;
+  text-decoration: none;
+}
+.guides{
+  padding: 10px;
+  background: white;
+  width: 950px;
+  height: 25%;
+}
+.gettingstarted{
+  font-size: 14px;
+  border-top: solid thick #88aacc;
+  display: inline-block;
+  text-align: center;
+  width: 32%;
+  margin-left: 10%;
+}
+.apps{
+  font-size: 14px;
+  border-top: solid thick #88aacc;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 35%;
+  margin-left: 15%;
+}
+.courses{
+  font-size: 14px;
+  margin: 5px;
+  color: #88aacc;
+  list-style: square;
+}
+.blueish{
+  color: #88aacc;
+}
+.footer{
+  background: linear-gradient( #225577 , #88aacc);
+  height: 12%;
+  display: block;
+}
+.copyright{
+  font-size: 10px;
+  text-align: center;
+  color: #225577;
+  vertical-align: bottom;
+}
+.botlinks{
+  font-size: 18px;
+  color: #88aacc;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  margin: 35px 20px 20px 30px;
+}
+.linksfoot{
+  text-align: center;
+}
