@@ -9,5 +9,5 @@ function telltime(HOUR, MINUTE, PERIOD) {
       else {
         String1 = "not sure if its day or night";
   }
-  return console.log(HOUR,MINUTE,String1);
+  return HOUR + ':' + MINUTE + String1;
 }
