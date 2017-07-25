@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src= 'jquery-3.2.1.js'></script>
+    <link rel="stylesheet" type="text/css" href="jQueryFunctionsstyle.css">
+    <meta charset="utf-8">
+    <title>jQuery Functions</title>
+    <script>$(document).ready(function(){
+      // .click function
+        $('#SlidetoggleButton').click(function(){
+          // .slideToggle function
+          $('img').slideToggle(function(){
+
+          });
+        });
+        $('#hideButton').click(function(){
+          // .hide function
+          $('img').hide(function(){
+
+          });
+        });
+        $('#showButton').click(function(){
+          // .show function
+          $('img').show(function(){
+
+          });
+        });
+        $('#toggleButton').click(function(){
+          // .toggle function
+          $('img').toggle(function(){
+
+          });
+        });
+        $('#slideUpButton').click(function(){
+          // .slideUp function
+          $('img').slideUp(function(){
+
+          });
+        });
+        $('#slideDownButton').click(function(){
+          // .slideDown function
+          $('img').slideDown(function(){
+
+          });
+        });
+        $('#fadeIn').click(function(){
+          // .fadeIn function
+          $('p').fadeIn(function(){
+
+          });
+        });
+        $('#fadeOut').click(function(){
+          // .fadeOut function
+          $('p').fadeOut(function(){
+
+          });
+        });
+        $('#AddClassButton').click(function(){
+          // .addClass function
+          $( "p" ).first().addClass( "red" );
+        });
+        $('#htmlButton').click(function(){
+          // .html function
+          $( "p" ).first().html( "<i>FANCY TEXT<i> Not Fancy text" );
+        });
+        $('#textButton').click(function(){
+          // .text function
+          $( "p" ).first().text( "DIRECT OVERRIDE <i>CLUTTER<i>" );
+        });
+        $('#attrButton').click(function(){
+          // .attr function
+          $( "p" ).first().text("type is a "+$('#AppendButton').attr('type'));
+        });
+        $('#valButton').click(function(){
+          // .val function
+          $( "p" ).first().text($('#randoField').val());
+        });
+        // $('#dataButton').click(function(){
+        //   // .data function
+        //   $( "p" ).first().data( "red" );
+        // });
+        $('#AppendButton').click(function(){
+          // .append function
+          $('p').append(' I appended this');
+        });
+        $('#beforeButton').click(function(){
+          // .before function
+          $('p').before('<h2>random header before</h2>');
+        });
+        $('#afterButton').click(function(){
+          // .after function
+          $('p').after('<h2>random header after</h2>');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section id="top">
+        <h1>Attribute Changers</h1>
+        <input type="text" id="randoField" name="randoField" value="">
+        <button id="htmlButton" type="button" name="htmlButton">htmlButton</button>
+        <button id="textButton" type="button" name="textButton">textButton</button>
+        <button id="attrButton" type="button" name="attrButton">attrButton</button>
+        <button id="valButton" type="button" name="valButton">valButton</button>
+        <!-- <button id="dataButton" type="button" name="dataButton">dataButton</button> -->
+        <button id="AddClassButton" type="button" name="AddClass">AddClass</button>
+        <p>Click the AddClass button to add class 'Red' to this paragraph</p>
+      </section>
+      <section id="mid">
+        <h1>Slidies</h1>
+        <button id="SlidetoggleButton" type="button" name="Slidetoggle">Slidetoggle</button>
+        <button id="hideButton" type="button" name="hideButton">hideButton</button>
+        <button id="showButton" type="button" name="showButton">showButton</button>
+        <button id="toggleButton" type="button" name="toggleButton">toggleButton</button>
+        <button id="slideDownButton" type="button" name="slideDownButton">slideDownButton</button>
+        <button id="slideUpButton" type="button" name="slideUpButton">slideUpButton</button>
+        <img src="inquisition.jpg" alt="inquisition">
+      </section>
+      <section  id="bottom">
+        <h1>inserters</h1>
+        <button id="fadeIn" type="button" name="fadeIn">fadeIn</button>
+        <button id="fadeOut" type="button" name="fadeOut">fadeOut</button>
+        <button id="AppendButton" type="button" name="Append">Append</button>
+        <button id="beforeButton" type="button" name="beforeButton">beforeButton</button>
+        <button id="afterButton" type="button" name="afterButton">afterButton</button>
+        <p>Click the Append button to append a new paragraph!</p>
+      </section>
+    </div>
+  </body>
+</html>
