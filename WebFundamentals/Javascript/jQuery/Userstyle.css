@@ -1,0 +1,23 @@
+*{
+  text-align: center;
+}
+h1{
+  border-bottom: 4px solid black;
+}
+input{
+}
+label{
+}
+table{
+  width: 500px;
+}
+tr{
+  outline: 2px solid black;
+}
+td{
+}
+.form1{
+  position: relative;
+  width: 500px;
+  background-color: teal;
+}

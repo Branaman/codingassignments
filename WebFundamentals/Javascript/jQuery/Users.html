@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src= 'jquery-3.2.1.js'></script>
+    <link rel="stylesheet" type="text/css" href="Userstyle.css">
+    <meta charset="utf-8">
+    <title>Users</title>
+    <script>
+      $(document).ready(function(){
+        $('.form1').submit(function(){
+          alert('you submitted me!');
+          dataPush();
+          return false;
+        });
+        function dataPush() {
+          var string1 = ('<tr>'+'<td>'+$('#first_name').val()+'</td>'+'<td>'+$('#last_name').val()+'</td>'+'<td>'+$('#e_mail').val()+'</td>'+'<td>'+$('#contactNum').val()+'</td>'+'</tr>')
+          $('table tr:last').after(string1);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Contact #</th>
+      </tr>
+    </table>
+      <form class="form1" action="submit" method="post">
+        <h1>Add User</h1>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name">
+        <br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="e_mail" name="email">
+        <br>
+
+        <label for="contactNum">Contact No:</label>
+        <input type="contactNum" id="contactNum" name="contactNum">
+        <br>
+
+        <input type="submit" value="Add User">
+
+      </form>
+  </body>
+</html>
