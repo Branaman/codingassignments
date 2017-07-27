@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Weather Again</title>
+        <link rel="stylesheet" href="">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function() {
+          $('form').submit(function() {
+            var url =  "http://api.openweathermap.org/data/2.5/weather?q="+$('#location').val()+",uk&&appid=3bafdc4cf0cb17f62dde75e20a915cac";
+            console.log(url);
+            // your code here (build up your url)
+            $.get(url, function(res) {
+              $("div").html("");
+              var main = (res.main.temp)*(9/5)-459.67;
+              console.log(main);
+              var weather = res.weather[0].main;
+              console.log(weather);
+              var lon = res.coord.lon;
+              console.log(lon);
+              var lat = res.coord.lat;
+              console.log(lat);
+              $("div").append("<h2>Coordinates: Lon:" +lon+", Lat:"+lat+"</h2>");
+              $("div").append("<h3>"+$('#location').val()+"</h3>");
+              $("div").append("<h3>Temp</h3><p> Temp: " + Math.floor(main) + " Degrees Fahrenheit</p>");
+              $("div").append("<h3>Weather</h3><p>" + weather + "</p>");
+            // your code here
+            }, 'json');
+            // don't forget to return false so the page doesn't refresh
+          return false;
+    });
+});
+        </script>
+    </head>
+    <body>
+        <form>
+            <input id="location" type="input">
+            <input type="submit" value="Search Weather">
+        </form>
+
+        <div></div>
+    </body>
+</html>

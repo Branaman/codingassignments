@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon</title>
+    <script src= 'jquery-3.2.1.js'></script>
+    <script>
+    $(document).ready(function(){
+          for (var i = 1; i <= 718; i++) {
+            var string1 = "<img id='"+i+"' src='" + "http://pokeapi.co/media/img/" + i+".png'>";
+            $('div:first').after(string1);
+          }
+          $("img").hover(function(){
+            var apiURL = "http://pokeapi.co/api/v2/";
+            var id = $(this).attr("id");
+            $.getJSON(apiURL + "pokemon/" + id + "/", function(data) {
+            $("#info").html("");
+            var height = data.height;
+            var weight = data.weight;
+            var name = data.name;
+            var type = [];
+            for(var i = 0; i <= data.types.length - 1; i++) {
+                type.push(data.types[i].type.name);
+            }
+            $("#info").append("<h2>" + name + "</h2>");
+            $("#info").append("<img src=" + "http://pokeapi.co/media/img/" + data.id + ".png>")
+            $("#info").append("<h3>Types</h3>");
+            for(var i = 0; i <= type.length - 1; i++) {
+                $("#info").append("<li>" + type[i] + "</li>");
+            }
+            $("#info").append("<h3>Height</h3><p>" + height + "</p>");
+            $("#info").append("<h3>Weight</h3><p>" + weight + "</p>");
+        }, "json");
+    });
+    });
+    </script>
+  </head>
+  <body>
+    <div>
+      <div id="pokemon"></div>
+      <div style="border: red solid 20px" id="info"></div>
+    </div>
+  </body>
+</html>

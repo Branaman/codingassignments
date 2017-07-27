@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src= 'jquery-3.2.1.js'></script>
+    <link rel="stylesheet" type="text/css" href="contactCardsStyle.css">
+    <meta charset="utf-8">
+    <title>Contact Cards</title>
+    <script>
+      $(document).ready(function(){
+        $('.form1').submit(function(){
+          dataPush();
+          return false
+        });
+        function dataPush() {
+          var string1 = ('<div class="contactCard">'+'<h2>'+$('#first_name').val()+'</h2>'+'<h3>'+$('#last_name').val()+'</h3>'+'<a href="'+$('#e_mail').val()+'">'+$('#e_mail').val()+'</a>'+'<p>'+$('#description').val()+'</p>'+'</div>');
+          $('section div:last').after(string1);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <section id="contactCards">
+      <div class="contactCard">
+        <h2>First Name</h2>
+        <h3>Last Name</h3>
+        <a href="Email@gmail.com">Email@gmail.com</a>
+        <p>A brief description of the person. Use this area to store important information about the person!</p>
+      </div>
+    </section>
+      <form class="form1" action="submit" method="post">
+        <h1>Add User</h1>
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name">
+        <br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name">
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="e_mail" name="email">
+        <br>
+
+        <label for="description">Description:</label>
+        <input type="description" id="description" name="description">
+        <br>
+
+        <input id="button" type="submit" value="Add ContactCard">
+
+      </form>
+  </body>
+</html>
