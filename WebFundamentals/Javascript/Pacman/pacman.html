@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <meta charset="utf-8">
+    <title>Pacman Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="world">
+    </div>
+    <script>
+    var height = 10;
+    var width = 10;
+    var porobro = {
+      y: 2,
+      x: 2,
+      size: 50
+    };
+    var world = [];
+    for (var i = 0; i < 14; i++) {
+      world.push([2])
+    }
+    function makeWorld(height,width) {
+      function makeBorder(n, width){
+        for(var i = 1; i <= width + 4; i++) {
+          world[n].push(2);
+        }
+      }
+      function makeCoins(n, width) {
+          if (world[n].length>1) {
+              world[n][(world[n].length)-1]=1;
+          }
+        for(var i = 1; i <= width + 4; i++) {
+            world[n].push(1);
+        }
+        world[n][(world[n].length -1)] = 2;
+      }
+      function makeMids(n, width) {
+        if (world[n].length>1) {
+          for (var i = 0; i < 12; i++) {
+            world[n][(world[n].length)-1]=1;
+          }
+        }
+        for(var i = 1; i <= width + 4; i++) {
+          var rand = (Math.random() * 2) + 1;
+          var blockType = Math.floor(rand);
+            world[n].push(blockType);
+        }
+        world[n][(world[n].length -1)] = 2;
+      }
+    makeBorder(0, width);
+    makeCoins(1, width);
+    for (var i = 2; i < 12; i++) {
+      makeMids(i, width);
+    }
+    makeCoins(12, width);
+    makeBorder(13, width);
+        // makeBorder(13, width);
+        // makeCoins(13, width);
+        console.log(world[i]);
+    }
+    // console.log(world);
+    // return world;
+    makeWorld(height, width);
+    world[porobro.y][porobro.x]= 3;
+    var lvlMax = 100;
+    var growth = 2;
+    function displayWorld() {
+      if (porobro.size == lvlMax) {
+        // height++;
+        // width++;
+        lvlMax = lvlMax;
+        growth = 1;
+        porobro.size = 21;
+        makeWorld(height, width);
+        world[porobro.y][porobro.x]= 3;
+      };
+      var output = '';
+      for(var i=0; i<world.length;i++){
+        output += "\n<div class='row'>";
+        for (var j = 0; j < world[i].length; j++) {
+          if(world[i][j] == 2)
+          output += "\n\t<div class='brick'></div>";
+          else if(world[i][j] == 1)
+          output += "\n\t<div class='coin'></div>";
+          else if(world[i][j] == 3)
+          output += "\n\t<div id='poro'></div>";
+          else if(world[i][j] == 0)
+          output += "\n\t<div class='empty'></div>";
+        }
+        output += "\n</div>";
+      }
+
+      document.getElementById('world').innerHTML = output;
+      $("#poro").css("background-size", porobro.size+"%");
+    }
+      document.onkeydown = function(e){
+        if(e.keyCode == 37){
+          // move left world[currenty][currentx]=0, world[currenty+1][currentx]=3
+          if (world[porobro.y][porobro.x-1] !=2) {
+            if (world[porobro.y][porobro.x-1] ==1) {
+              porobro.size+=growth;
+              console.log(porobro.size);
+            }
+            world[porobro.y][porobro.x] = 0;
+            world[porobro.y][porobro.x-1] =3;
+            porobro.x--;
+
+          displayWorld();
+        }
+        }
+        if(e.keyCode == 38){
+          // move up world[currenty][currentx]=0, world[currenty+1][currentx]=3
+          if (world[porobro.y-1][porobro.x] !=2) {
+            if (world[porobro.y-1][porobro.x] ==1) {
+              porobro.size+=growth;
+              console.log(porobro.size);
+            }
+          world[porobro.y][porobro.x] = 0;
+          world[porobro.y-1][porobro.x] =3;
+          porobro.y--;
+          displayWorld();
+        }
+        }
+        if(e.keyCode == 39){
+          // move right world[currenty][currentx]=0, world[currenty+1][currentx]=3
+          if (world[porobro.y][porobro.x+1] !=2) {
+            if (world[porobro.y][porobro.x+1] ==1) {
+              porobro.size+=growth;
+              console.log(porobro.size);
+            }
+          world[porobro.y][porobro.x] = 0;
+          world[porobro.y][porobro.x+1] =3;
+          porobro.x++;
+          displayWorld();
+        }
+        }
+        if(e.keyCode == 40){
+          // move down world[currenty][currentx]=0, world[currenty+1][currentx]=3
+          if (world[porobro.y+1][porobro.x] !=2) {
+            if (world[porobro.y+1][porobro.x] ==1) {
+              porobro.size+=growth;
+              console.log(porobro.size);
+            }
+          world[porobro.y][porobro.x] = 0;
+          world[porobro.y+1][porobro.x] =3;
+          porobro.y++;
+          displayWorld();
+        }
+        }
+      }
+    displayWorld();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  background: black;
+}
+div.row div{
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  display: inline-block;
+}
+div.empty{
+
+}
+div.brick{
+  background-color: blue;
+}
+div.coin{
+  background: url('coookie.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-size: cover;*/
+  background-size: 50%;
+}
+div#poro{
+  background: url('league_of_legends_sprite___poro_by_i208in-d9kaw59.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
