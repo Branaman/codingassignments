@@ -1,7 +1,3 @@
-# def multiply(arr,num):
-#     for x in range(len(arr)):
-#         arr[x] *= num
-#         return arr
 def layered_multiples(arr):
     new_array = []
     for value in range(len(arr)):
