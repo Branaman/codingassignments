@@ -41,13 +41,29 @@ class PatientCenter(object):
     def removeNum(self, id_num):
         for value in range(0, len(self.patients)):
             if self.patients[value].patient_ID == id_num:
-                self.beds[self.patients[value].bed_Num] = 0
-                self.patients[value].bed_Num = None
-                self.treating -= 1
-                print self.patients[value].patient_Name, "Is cured.... or dead"
-                print "-------------"
-    def remove(self, idx = 0):
-        del self.patients[idx]
+                if self.patients[value].bed_Num == None:
+                    print "Patient was not checked in"
+                else:
+                    self.beds[self.patients[value].bed_Num] = 0
+                    self.patients[value].bed_Num = None
+                    self.treating -= 1
+                    print self.patients[value].patient_Name, "Is cured.... or dead"
+                    print "-------------"
+    def remove(self, id_num):
+        for value in range(0, len(self.patients)):
+            if self.patients[value].patient_ID == id_num:
+                if self.patients[value].bed_Num == None:
+                    print self.patients[value].patient_Name, "Was not a paitent and was deleted from database"
+                    del self.patients[value]
+                    break
+                else:
+                    self.beds[self.patients[value].bed_Num] = 0
+                    self.patients[value].bed_Num = None
+                    self.treating -= 1
+                    print self.patients[value].patient_Name, "Was checked out and deleted from database"
+                    print "-------------"
+                    del self.patients[value]
+                    break
     def info(self):
         for value in range(0,len(self.patients)):
             print self.patients[value].patient_Name
@@ -84,3 +100,4 @@ hospital1.checkIn(1238)
 hospital1.checkIn(1239)
 hospital1.checkIn(1240)
 hospital1.info()
+hospital1.remove(1235)
