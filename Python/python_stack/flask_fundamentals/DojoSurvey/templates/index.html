@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+    <title>Dojo Survey Index</title>
+  </head>
+  <body>
+    <form action='/result' method='post'>
+        Your Name: <input type='text' name='name'><br>
+        Favorite Language: <select name='favLang'>
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="English">English</option>
+        </select><br>
+        Dojo Location: <select name='DojoLocation'>
+          <option value="Seattle">Seattle</option>
+          <option value="San Jose">San Jose</option>
+          <option value="Chicago">Chicago</option>
+        </select><br>
+        Comments: <input type='text' name='comments'><br>
+        <input type='submit' value='Submit info'>
+    </form>
+  </body>
+</html>

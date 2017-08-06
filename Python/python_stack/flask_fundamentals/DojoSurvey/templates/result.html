@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+    <title>Dojo Survey Index</title>
+  </head>
+  <body>
+    <!--username = name, userDojo = DojoLocation, userFavLang = favLang, comments = comments  -->
+    <h1>Submitted Info</h1>
+    <h2>Name: {{username}}</h2>
+    <h2>Dojo Location: {{userDojo}}</h2>
+    <h2>Favorite Language: {{userFavLang}}</h2>
+    <h2>Comments: {{comments}}</h2>
+  </body>
+</html>
