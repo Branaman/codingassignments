@@ -1,0 +1,83 @@
+	#	Time	Action	Message	Duration / Fetch
+3	1	12:04:54	CREATE DATABASE  IF NOT EXISTS `twitter` /*!40100 DEFAULT CHARACTER SET utf8 */	1 row(s) affected	0.000 sec
+3	2	12:04:54	USE `twitter`	0 row(s) affected	0.000 sec
+3	3	12:04:54	/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */	0 row(s) affected	0.016 sec
+3	4	12:04:54	/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */	0 row(s) affected	0.000 sec
+3	5	12:04:54	/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */	0 row(s) affected	0.000 sec
+3	6	12:04:54	/*!40101 SET NAMES utf8 */	0 row(s) affected	0.000 sec
+3	7	12:04:54	/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */	0 row(s) affected	0.000 sec
+3	8	12:04:54	/*!40103 SET TIME_ZONE='+00:00' */	0 row(s) affected	0.000 sec
+3	9	12:04:54	/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */	0 row(s) affected	0.000 sec
+3	10	12:04:54	/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */	0 row(s) affected	0.000 sec
+3	11	12:04:54	/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */	0 row(s) affected	0.000 sec
+3	12	12:04:54	/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */	0 row(s) affected	0.000 sec
+3	13	12:04:54	DROP TABLE IF EXISTS `faves`	0 row(s) affected	0.000 sec
+3	14	12:04:54	/*!40101 SET @saved_cs_client     = @@character_set_client */	0 row(s) affected	0.000 sec
+3	15	12:04:54	/*!40101 SET character_set_client = utf8 */	0 row(s) affected	0.000 sec
+3	16	12:04:54	CREATE TABLE `faves` (   `id` int(11) NOT NULL AUTO_INCREMENT,   `user_id` int(11) NOT NULL,   `tweet_id` int(11) NOT NULL,   `created_at` datetime DEFAULT NULL,   `updated_at` datetime DEFAULT NULL,   PRIMARY KEY (`id`),   KEY `fk_faves_users1_idx` (`user_id`),   KEY `fk_faves_tweets1_idx` (`tweet_id`),   CONSTRAINT `fk_faves_tweets1` FOREIGN KEY (`tweet_id`) REFERENCES `tweets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,   CONSTRAINT `fk_faves_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8	0 row(s) affected	0.078 sec
+3	17	12:04:54	/*!40101 SET character_set_client = @saved_cs_client */	0 row(s) affected	0.016 sec
+3	18	12:04:54	LOCK TABLES `faves` WRITE	0 row(s) affected	0.000 sec
+3	19	12:04:54	/*!40000 ALTER TABLE `faves` DISABLE KEYS */	0 row(s) affected	0.000 sec
+3	20	12:04:54	INSERT INTO `faves` VALUES (1,2,1,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(2,2,2,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(3,3,4,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(4,4,3,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(5,1,9,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(6,1,10,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(7,1,11,'2010-02-01 00:00:01','2010-02-01 00:00:01')	7 row(s) affected Records: 7  Duplicates: 0  Warnings: 0	0.015 sec
+3	21	12:04:54	/*!40000 ALTER TABLE `faves` ENABLE KEYS */	0 row(s) affected	0.000 sec
+3	22	12:04:54	UNLOCK TABLES	0 row(s) affected	0.000 sec
+3	23	12:04:54	DROP TABLE IF EXISTS `follows`	0 row(s) affected	0.000 sec
+3	24	12:04:54	/*!40101 SET @saved_cs_client     = @@character_set_client */	0 row(s) affected	0.000 sec
+3	25	12:04:54	/*!40101 SET character_set_client = utf8 */	0 row(s) affected	0.000 sec
+3	26	12:04:54	CREATE TABLE `follows` (   `id` int(11) NOT NULL AUTO_INCREMENT,   `followed_id` int(11) NOT NULL,   `follower_id` int(11) DEFAULT NULL,   `created_at` datetime DEFAULT NULL,   `updated_at` datetime DEFAULT NULL,   PRIMARY KEY (`id`),   KEY `fk_follows_users_idx` (`followed_id`),   CONSTRAINT `fk_follows_users` FOREIGN KEY (`followed_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8	0 row(s) affected	0.062 sec
+3	27	12:04:54	/*!40101 SET character_set_client = @saved_cs_client */	0 row(s) affected	0.000 sec
+3	28	12:04:54	LOCK TABLES `follows` WRITE	0 row(s) affected	0.000 sec
+3	29	12:04:54	/*!40000 ALTER TABLE `follows` DISABLE KEYS */	0 row(s) affected	0.000 sec
+3	30	12:04:54	INSERT INTO `follows` VALUES (1,1,2,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(2,1,3,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(3,1,4,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(4,1,5,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(5,3,4,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(6,3,5,'2010-02-01 00:00:01','2010-02-01 00:00:01'),(7,2,4,'2010-02-01 00:00:01','2010-02-01 00:00:01')	7 row(s) affected Records: 7  Duplicates: 0  Warnings: 0	0.000 sec
+3	31	12:04:54	/*!40000 ALTER TABLE `follows` ENABLE KEYS */	0 row(s) affected	0.000 sec
+3	32	12:04:54	UNLOCK TABLES	0 row(s) affected	0.000 sec
+3	33	12:04:54	DROP TABLE IF EXISTS `tweets`	0 row(s) affected	0.000 sec
+3	34	12:04:54	/*!40101 SET @saved_cs_client     = @@character_set_client */	0 row(s) affected	0.000 sec
+3	35	12:04:54	/*!40101 SET character_set_client = utf8 */	0 row(s) affected	0.000 sec
+3	36	12:04:54	CREATE TABLE `tweets` (   `id` int(11) NOT NULL AUTO_INCREMENT,   `tweet` varchar(140) DEFAULT NULL,   `user_id` int(11) NOT NULL,   `created_at` datetime DEFAULT NULL,   `updated_at` datetime DEFAULT NULL,   PRIMARY KEY (`id`),   KEY `fk_tweets_users1_idx` (`user_id`),   CONSTRAINT `fk_tweets_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8	0 row(s) affected	0.093 sec
+3	37	12:04:55	/*!40101 SET character_set_client = @saved_cs_client */	0 row(s) affected	0.000 sec
+3	38	12:04:55	LOCK TABLES `tweets` WRITE	0 row(s) affected	0.000 sec
+3	39	12:04:55	/*!40000 ALTER TABLE `tweets` DISABLE KEYS */	0 row(s) affected	0.000 sec
+3	40	12:04:55	INSERT INTO `tweets` VALUES (1,'There is power in understanding the journey of others to help create your own',1,'2002-02-01 00:00:01','2002-02-01 00:00:01'),(2,'Congrats Coach K! Amazing accomplishment #1KforCoachK #Duke',1,'2005-02-01 00:00:01','2005-02-01 00:00:01'),(3,'This is what happens when I pass too much! #ShoulderShock thank u all for ur thoughts and prayers #team @DrinkBODYARMOR @Lakers #oneluv',1,'2004-02-01 00:00:01','2004-02-01 00:00:01'),(4,'Feeling a mix of emotions I haven\'t felt in 18yrs of being a pro #journey #19th',1,'2012-02-01 00:00:01','2012-02-01 00:00:01'),(5,'Thank you everyone for the birthday wishes. I appreciate you all.',2,'2011-02-01 00:00:01','2011-02-01 00:00:01'),(6,'I\'d like to wish everyone a very Merry Christmas. 1 love to all \"Be Safe\"',2,'2009-02-01 00:00:01','2009-02-01 00:00:01'),(7,'Thanks to all who helped with the Christmas food baskets today. Your time is greatly appreciated. Love & Respect!! ',2,'2008-02-01 00:00:01','2008-02-01 00:00:01'),(8,'I took on the ALS Challenge from Monta Ellis. I challenge @coolkesh42 Jameer Nelson, Dionne Calhoun ... http://tmi.me/1eFAxT ',2,'2003-02-01 00:00:01','2003-02-01 00:00:01'),(9,'Well done lil bro, you deserve it!! @KingJames',3,'2006-02-01 00:00:01','2006-02-01 00:00:01'),(10,'For my basketball clinic with @manilacone 11/4/14, we still have a few slots left for the main game. See you all 11/5/14 Philippines',3,'2001-02-01 00:00:01','2001-02-01 00:00:01'),(11,'Always have a great time with my big little brother. ',4,'2011-02-01 00:00:01','2011-02-01 00:00:01'),(12,'Happy Labor Day..',4,'2014-02-01 00:00:01','2014-02-01 00:00:01')	12 row(s) affected Records: 12  Duplicates: 0  Warnings: 0	0.000 sec
+3	41	12:04:55	/*!40000 ALTER TABLE `tweets` ENABLE KEYS */	0 row(s) affected	0.000 sec
+3	42	12:04:55	UNLOCK TABLES	0 row(s) affected	0.000 sec
+3	43	12:04:55	DROP TABLE IF EXISTS `users`	0 row(s) affected	0.000 sec
+3	44	12:04:55	/*!40101 SET @saved_cs_client     = @@character_set_client */	0 row(s) affected	0.000 sec
+3	45	12:04:55	/*!40101 SET character_set_client = utf8 */	0 row(s) affected	0.000 sec
+3	46	12:04:55	CREATE TABLE `users` (   `id` int(11) NOT NULL AUTO_INCREMENT,   `first_name` varchar(255) DEFAULT NULL,   `last_name` varchar(255) DEFAULT NULL,   `handle` varchar(255) DEFAULT NULL,   `birthday` date DEFAULT NULL,   `created_at` datetime DEFAULT NULL,   `updated_at` datetime DEFAULT NULL,   PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8	0 row(s) affected	0.172 sec
+3	47	12:04:55	/*!40101 SET character_set_client = @saved_cs_client */	0 row(s) affected	0.000 sec
+3	48	12:04:55	LOCK TABLES `users` WRITE	0 row(s) affected	0.000 sec
+3	49	12:04:55	/*!40000 ALTER TABLE `users` DISABLE KEYS */	0 row(s) affected	0.000 sec
+3	50	12:04:55	INSERT INTO `users` VALUES (1,'Kobe','Bryant','kobebryant','1978-08-23','2010-02-01 00:00:01','2011-07-01 00:00:01'),(2,'Vince','Carter','mrvincecarter15','1977-01-26','2007-08-11 00:00:01','2010-01-01 00:00:01'),(3,'Allen','Iverson','alleniverson','1975-06-07','2005-09-01 00:00:01','2011-04-21 00:00:01'),(4,'Tracy','McGrady','Real_T_Mac','1979-05-24','2002-12-01 00:00:01','2005-11-21 00:00:01'),(5,'Rajon','Rondo','RajonRondo','1986-02-22','2001-02-01 00:00:01','2002-01-01 00:00:01')	5 row(s) affected Records: 5  Duplicates: 0  Warnings: 0	0.000 sec
+3	51	12:04:55	/*!40000 ALTER TABLE `users` ENABLE KEYS */	0 row(s) affected	0.000 sec
+3	52	12:04:55	UNLOCK TABLES	0 row(s) affected	0.000 sec
+3	53	12:04:55	/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */	0 row(s) affected	0.000 sec
+3	54	12:04:55	/*!40101 SET SQL_MODE=@OLD_SQL_MODE */	0 row(s) affected	0.000 sec
+3	55	12:04:55	/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */	0 row(s) affected	0.000 sec
+3	56	12:04:55	/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */	0 row(s) affected	0.000 sec
+3	57	12:04:55	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */	0 row(s) affected	0.000 sec
+3	58	12:04:55	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */	0 row(s) affected	0.000 sec
+3	59	12:04:55	/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */	0 row(s) affected	0.000 sec
+3	60	12:04:55	/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */	0 row(s) affected	0.000 sec
+3	61	12:26:13	USE twitter	0 row(s) affected	0.000 sec
+0	62	12:27:00	SELECT * FROM users:	Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1	0.000 sec
+3	63	12:27:16	SELECT * FROM users LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+3	64	12:27:50	SELECT * FROM users WHERE id = 1 OR id = 2 ORDER BY birthday ASC LIMIT 0, 1000	2 row(s) returned	0.016 sec / 0.000 sec
+3	65	12:31:07	INSERT INTO tweets (tweet, user_id, created_at, updated_at) VALUES ("hellooooo", 1, NOW(), NOW())	1 row(s) affected	0.000 sec
+3	66	12:32:12	select * from tweets LIMIT 0, 1000	13 row(s) returned	0.000 sec / 0.000 sec
+3	67	12:32:51	select * from users LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+0	68	12:34:37	update suers set first_name = "Kobet" where id = 1	Error Code: 1146. Table 'twitter.suers' doesn't exist	0.016 sec
+3	69	12:35:02	select * from users LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+3	70	12:35:30	UPDATE `twitter`.`users` SET `first_name`='Kobet' WHERE `id`='1'	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.031 sec
+0	71	12:35:31	Refresh Recordset	There are pending changes. Please commit or rollback first.	
+3	72	12:35:38	UPDATE `twitter`.`users` SET `first_name`='Kobe' WHERE `id`='1'	1 row(s) affected Rows matched: 1  Changed: 1  Warnings: 0	0.016 sec
+0	73	12:35:40	Refresh Recordset	There are pending changes. Please commit or rollback first.	
+0	74	12:35:41	Refresh Recordset	There are pending changes. Please commit or rollback first.	
+0	75	12:35:41	Refresh Recordset	There are pending changes. Please commit or rollback first.	
+3	76	12:35:53	UPDATE `twitter`.`users` SET `first_name`='Kobe' WHERE `id`='1'	0 row(s) affected Rows matched: 1  Changed: 0  Warnings: 0	0.016 sec
+3	77	12:36:15	select * from users LIMIT 0, 1000	5 row(s) returned	0.000 sec / 0.000 sec
+3	78	12:36:35	SET SQL_SAFE_UPDATES = 0	0 row(s) affected	0.000 sec
+3	79	12:37:10	select * from tweets LIMIT 0, 1000	13 row(s) returned	0.000 sec / 0.000 sec
+3	80	12:37:28	delete from tweets where id = 13	1 row(s) affected	0.016 sec
+3	81	12:37:33	delete from tweets where id = 13	0 row(s) affected	0.000 sec
+3	82	12:37:42	select * from tweets LIMIT 0, 1000	12 row(s) returned	0.000 sec / 0.000 sec
