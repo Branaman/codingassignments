@@ -18,8 +18,16 @@ def delPage(request, number):
     print "blog del, page opened", number
     return render(request, "first_app/delete.html", number)
 def create(request):
-    print "blog create page opened"
-    return render(request, "first_app/index.html")
+    if request.method == "POST":
+        print "*"*50
+        print request.POST
+        print request.POST['name']
+        print request.POST['desc']
+        print "*"*50
+        return render(request, "first_app/index.html")
+    else:
+        print "blog create page opened"
+        return render(request, "first_app/index.html")
 def new(request):
     print "blog new page opened"
     return render(request, "first_app/new.html")
