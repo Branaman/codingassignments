@@ -1,0 +1,6 @@
+1. select customer.first_name, customer.last_name, customer.email
+from address
+JOIN customer on customer.address_id = address.address_id where city_id = 312
+
+
+2. 
