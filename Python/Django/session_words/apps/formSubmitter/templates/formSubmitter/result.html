@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Index</title>
+  </head>
+  <body>
+    <h1>You have sumbitted {{ request.session.counter }} times</h1>
+    <!--username = name, userDojo = DojoLocation, userFavLang = favLang, comments = comments  -->
+    <h1>Submitted Info</h1>
+    <h2>Name: {{name}}</h2>
+    <h2>Dojo Location: {{DojoLocation}}</h2>
+    <h2>Favorite Language: {{userFavLang}}</h2>
+    <h2>Comments: {{comments}}</h2>
+  </body>
+</html>
