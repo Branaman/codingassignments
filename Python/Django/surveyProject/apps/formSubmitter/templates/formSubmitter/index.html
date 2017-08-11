@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Index</title>
+  </head>
+  <body>
+    <form action='/results' method='post'>
+      {% csrf_token %}
+        Your Name: <input type='text' name='name'><br>
+        Favorite Language: <select name='favLang'>
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="English">English</option>
+        </select><br>
+        Dojo Location: <select name='DojoLocation'>
+          <option value="Seattle">Seattle</option>
+          <option value="San Jose">San Jose</option>
+          <option value="Chicago">Chicago</option>
+        </select><br>
+        Comments: <input type='text' name='comments'><br>
+        <input type='submit' value='Submit info'>
+    </form>
+  </body>
+</html>
