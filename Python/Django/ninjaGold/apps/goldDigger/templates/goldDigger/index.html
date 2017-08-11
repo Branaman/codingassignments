@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      {% load static %}
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <title>Form Test Index</title>
+  </head>
+  <body>
+    <div class="row container">
+      <p class="col l2 offset-l5 center-align yellow darken-3 white-text">{{request.session.gold}} Gold!</p>
+    </div>
+    <div class="row">
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/farm.jpg" %}">
+              <span class="card-title">Farm</span>
+            </div>
+            <div class="card-content">
+              <p>Earn between 10 and 20 gold</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/process" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="farm">
+                <button class="btn waves-effect waves-light" type="submit" name="farm">Farm for Gold!
+                  <i class="material-icons right">local_florist</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/cave.jpg" %}">
+              <span class="card-title">Cave</span>
+            </div>
+            <div class="card-content">
+              <p>Earn between 5 and 10 gold</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/process" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="cave">
+                <button class="btn waves-effect waves-light" type="submit" name="cave">Spelunk for Gold!
+                  <i class="material-icons right">landscape</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/home.jpg" %}">
+              <span class="card-title">House</span>
+            </div>
+            <div class="card-content">
+              <p>Earn between 2 and 5 gold</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/process" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="house">
+                <button class="btn waves-effect waves-light" type="submit" name="house">Clean for Gold!
+                  <i class="material-icons right">home</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/casino2.jpg" %}">
+              <span class="card-title">Casino</span>
+            </div>
+            <div class="card-content">
+              <p>Earn or Lose 50 gold</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/process" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="casino">
+                <button class="btn waves-effect waves-light" type="submit" name="casino">Lose it All!
+                  <i class="material-icons right">casino</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col l12">
+        <p class="center-align">{{ request.session.log | safe }}</p>
+        <form action="/reset" method="post">
+          {% csrf_token %}
+          <button class="col l2 offset-l5 btn waves-effect waves-light" type="submit" name="reset">Reset
+            <i class="material-icons right">refresh</i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
