@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" http-equiv="content-type">
+    <title></title>
+  </head>
+  <body>
+    <h1>The random word attempt {{ request.session.counter }}:</h1>
+    <div class="line">{{word}}</div>
+    <form action="/create" method="post">
+      {% csrf_token %}
+      <input type="submit" value="submit">
+  </body>
+</html>
