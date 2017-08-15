@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    </head>
+  <body>
+      <h1>Edit User {{userid}}</h1>
+      <form class="" action="/processedit" method="post">
+        {% csrf_token %}
+        <h2>First name:</h2>
+        <input type="hidden" name="user_id" value={{userid}}>
+        <input type="text" name="first_name" value="">
+        <h2>Last name:</h2>
+        <input type="text" name="last_name" value="">
+        <h2>Email:</h2>
+        <input type="text" name="email" value="">
+        <br>
+        <input type="submit" name="submit" value="Update">
+      </form>
+      <form class="" action="/users" method="post">
+        {% csrf_token %}
+        <input type="submit" name="submit" value="Go Back">
+      </form>
+      <form class="" action="/users/{{userid}}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="user_id" value="{{userid}}">
+        <input type="submit" name="submit" value="Show">
+      </form>
+  </body>
+</html>

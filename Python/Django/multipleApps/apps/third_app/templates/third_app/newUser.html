@@ -5,6 +5,21 @@
     <title>Add User</title>
   </head>
   <body>
-    <h1>placeholder for users to register</h1>
+    <h1>Add a new user</h1>
+    <form class="" action="/adduser" method="post">
+      {% csrf_token %}
+      <h2>First name:</h2>
+      <input type="text" name="first_name" value="">
+      <h2>Last name:</h2>
+      <input type="text" name="last_name" value="">
+      <h2>Email:</h2>
+      <input type="text" name="email" value="">
+      <br>
+      <input type="submit" name="submit" value="Create">
+    </form>
+    <form class="" action="/users" method="post">
+       {% csrf_token %}
+      <input type="submit" name="submit" value="Go Back">
+    </form>
   </body>
 </html>

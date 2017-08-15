@@ -5,6 +5,33 @@
     <title></title>
     </head>
   <body>
-      <h1>List of all the users</h1>
+    <h1>Users</h1>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+        {% if Users %}
+        {% load tz %}
+        {% localtime on %}
+            {% for User in Users %}
+                <tr>
+                    <th>{{ User.id }}</th>
+                    <th>{{ User.first_name }} {{ User.last_name }}</th>
+                    <th>{{ User.email }}</th>
+                    <th>{{ User.created_at }}</th>
+                    <th><a href="/users/{{User.id}}">Show</a> {% csrf_token %}<a href="/users/{{User.id}}/edit">Edit</a>{% csrf_token %} <a href="/users/{{User.id}}/delete">Delete</a>{% csrf_token %}</th>
+                </tr>
+            {% endfor %}
+            {% endlocaltime %}
+        {% endif %}
+      </table>
+      <form class="" action="/users/new" method="post">
+        {% csrf_token %}
+        <input type="submit" name="newUser" value="Add a new user">
+      </form>
   </body>
 </html>
