@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success Page</title>
+  </head>
+  <body>
+    <h1>Welcome {{request.session.alias}}!</h1>
+    <h2>Recent Book Reviews: (last 3)</h2>
+      <ul>
+        <li>Review</li>
+        <li>
+          <ul>
+            {% if users %}
+              {% for user in users %}
+                <li>{{user.id}} {{user.alias}}</li>
+              {% endfor %}
+            {% endif %}
+            {% if reviews %}
+              {% for review in reviews %}
+                <li>{{review.id}} {{review.content}}</li>
+              {% endfor %}
+            {% endif %}
+            <li>Rating in Stars</li>
+            <li>User.alias says: Review.conent</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>Other Books with Reviews</h2>
+        <ul>
+          {% if books %}
+            {% for book in books %}
+              <li>{{book.id}} {{book.book_title}}</li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+    <a href="/books/add">Add Book and Review</a>
+    <a href="/logout">Log Out</a>
+  </body>
+</html>

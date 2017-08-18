@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      {% load static %}
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <title>Totally not NinjaGold</title>
+  </head>
+  <body>
+    <div class="center-align">
+      <a class="waves-effect waves-light btn" href="/logout"><i class="material-icons left">exit_to_app</i>Logout</a>
+      <a class="waves-effect waves-light btn" href="/dash"><i class="material-icons left">home</i>Home</a>
+    </div>
+    <div class="row container">
+      <p class="col l2 offset-l5 center-align yellow darken-3 white-text">{{gold.gold}} Gold!</p>
+    </div>
+    <div class="row">
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/farm.jpg" %}">
+              <span class="card-title">Farm</span>
+            </div>
+            <div class="card-content">
+              <p>Earn up to 25 gold!</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/mine" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="farm">
+                <button class="btn waves-effect waves-light" type="submit" name="farm">Farm for Gold!
+                  <i class="material-icons right">local_florist</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/cave.jpg" %}">
+              <span class="card-title">Cave</span>
+            </div>
+            <div class="card-content">
+              <p>Earn up to 10 gold!</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/mine" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="cave">
+                <button class="btn waves-effect waves-light" type="submit" name="cave">Spelunk for Gold!
+                  <i class="material-icons right">landscape</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/home.jpg" %}">
+              <span class="card-title">House</span>
+            </div>
+            <div class="card-content">
+              <p>Earn up to 7 gold!</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/mine" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="house">
+                <button class="btn waves-effect waves-light" type="submit" name="house">Clean for Gold!
+                  <i class="material-icons right">home</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col l3">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static "img/casino2.jpg" %}">
+              <span class="card-title">Casino</span>
+            </div>
+            <div class="card-content">
+              <p>Earn up to 50 gold!</p>
+            </div>
+            <div class="card-action center-align">
+              <form action="/mine" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="casino">
+                <button class="btn waves-effect waves-light" type="submit" name="casino">Lose it All!
+                  <i class="material-icons right">casino</i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col l4 offset-l4">
+        <div class="card blue-grey darken-1">
+        <p class="center-align white-text">{{ gold.activities | safe }}</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

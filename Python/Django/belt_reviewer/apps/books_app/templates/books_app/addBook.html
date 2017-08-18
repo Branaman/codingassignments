@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Book and Review</title>
+  </head>
+  <body>
+      {% for message in messages %}
+            <p class="error_message">* {{ message }}</p>
+      {% endfor %}
+    <a href="/">Home</a>
+    <a href="/logout">Logout</a>
+    <h1>Add a New Book Title and a Review</h1>
+    <form action="/books/processBook" method="post">
+      {% csrf_token %}
+      Book Title:<input type="text" name="book_title" value="">
+      <div class=''>
+        <label>Choose Book from the list:</label>
+        <select name= 'book_id' class=''>
+          <option value='' disabled selected>
+          {% if books %}
+            {% for book in books %}
+              <option name='book_id' value={{book.id}}>{{book.book_title}}</option>
+            {% endfor %}
+          {% endif %}
+          </select>
+      </div>
+      <div class=''>
+        <label>Choose from the list:</label>
+        <select name= 'author_id' class=''>
+          <option value='' disabled selected>
+          {% if authors %}
+            {% for author in authors %}
+              <option name= 'author_id' value={{author.id}}>{{author.author_name}}</option>
+            {% endfor %}
+          {% endif %}
+          </select>
+      </div>
+      Or add as new Author:<input type="text" name="author_name" value="">
+      Review:<input type="text" name="content" value="">
+        <label>Rating:</label>
+        <select name= 'stars' class=''>
+          <option name = 'stars' value='' disabled selected>
+            <option name= 'stars' value='1'>1</option>
+            <option name= 'stars' value='2'>2</option>
+            <option name= 'stars' value='3'>3</option>
+            <option name= 'stars' value='4'>4</option>
+            <option name= 'stars' value='5'>5</option>
+          </select>
+      <input type="submit" name="submit" value="Add Book and Review">
+    </form>
+  </body>
+</html>

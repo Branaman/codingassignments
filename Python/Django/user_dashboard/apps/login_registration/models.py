@@ -14,8 +14,6 @@ class formManager(models.Manager):
             errors["email"] = "Must use a valid Email"
         if len(postData['password']) < 8:
             errors["password"] = "password requires minimum 8 characters"
-        # if len(self.filter(email= postData['email'])) > 0:
-        #     print "email already exists in database"
         try:
             if User.objects.get(email=postData['email']):
                 errors['email'] = "this user already exists"
