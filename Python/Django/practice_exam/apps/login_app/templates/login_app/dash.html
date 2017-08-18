@@ -21,7 +21,7 @@
       <div class="collection center-align col l4 offset-l4">
         {% if Users %}
           {% for User in Users %}
-            <a href="/users/{{User.id}}" class="collection-item"><span class="red-text">{{User.first_name}} {{User.last_name}}</span> ${{User.gold}}</a>
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> ${{User.gold}}</a>
           {% endfor %}
         {% endif %}
       </div>

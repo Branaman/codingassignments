@@ -1,10 +1,10 @@
 from __future__ import unicode_literals
-import re
 from django.db import models
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 import bcrypt
 from random import randint
+import re
 import datetime
 def goldGen(keys, user_id, request):
     b = User.objects.get(id=user_id)
