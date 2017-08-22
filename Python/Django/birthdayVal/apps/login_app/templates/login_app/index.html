@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col l4 offset-l4">
         <h1 class="center-align">Log In/Registration</h1>
-        <form class="input-field" action="/register" method="post">
+        <form action="/register" method="post">
           {% csrf_token %}
           <div class="input-field">
             <input id="reg_first_name" type="text" name="first_name" value=""><label for="reg_first_name">First Name:</label>
@@ -23,8 +23,8 @@
           <div class="input-field">
             <input id="reg_email" type="text" name="email" value=""><label for="reg_email">Email:</label>
           </div>
-          <div class="input-field">
-            <input id="reg_dob" type="date" name="dob" value=""><label for="reg_dob">Date of Birth:</label>
+          <div>
+            <label for="reg_dob">Birthday:</label><input class="datepicker" id="reg_dob" type="date" name="dob" value="">
           </div>
           <div class="input-field">
             <input id="reg_pass" type="password" name="password" value=""><label for="reg_pass">Password:</label>
@@ -61,5 +61,13 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static "js/materialize.js" %}"></script>
+    <script type="text/javascript"> $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });</script>
   </body>
 </html>
