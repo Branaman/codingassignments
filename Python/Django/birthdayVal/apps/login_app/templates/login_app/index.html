@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="row">
-      <div class="col l4 offset-l4">
+      <div class="col l6 offset-l3">
         <h1 class="center-align">Log In/Registration</h1>
         <form action="/register" method="post">
           {% csrf_token %}
@@ -32,12 +32,12 @@
           <div class="input-field">
             <input id="reg_c_pass" type="password" name="c_password" value=""><label for="reg_c_pass">Confirm Password:</label>
           </div>
-          <input class="waves-effect waves-light btn" type="submit" name="submit" value="Register">
+          <input class="waves-effect waves-light btn center" type="submit" name="submit" value="Register">
         </form>
       </div>
     </div>
     <div class="row">
-      <div class="col l4 offset-l4">
+      <div class="col l6 offset-l3">
         <form class="" action="/login" method="post">
           {% csrf_token %}
           <div class="input-field">
