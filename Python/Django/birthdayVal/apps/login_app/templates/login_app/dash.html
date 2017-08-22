@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      {% load static %}
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{% static "css/materialize.css" %}">
+    <title>Dash</title>
+  </head>
+  <body>
+    <h1 class="center-align">Welcome {{request.session.name}}</h1>
+    <div class="center-align">
+      <a class="waves-effect waves-light btn" href="/logout"><i class="material-icons left">exit_to_app</i>Logout</a>
+      <a class="waves-effect waves-light btn" href="/users"><i class="material-icons left">group</i>All Users</a>
+    </div>
+    <div class="center-align">
+    <h1>Birthdays by Month!</h1>
+    <div class="row">
+      <div class="collection center-align col l1">
+        <h4>Jan</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Jan %}
+          {% for User in Jan %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Feb</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Feb %}
+          {% for User in Feb %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Mar</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Mar %}
+          {% for User in Mar %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Apr</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Apr %}
+          {% for User in Apr %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>May</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if May %}
+          {% for User in May %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Jun</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Jun %}
+          {% for User in Jun %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Jul</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Jul %}
+          {% for User in Jul %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Aug</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Aug %}
+          {% for User in Aug %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Sep</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Sep %}
+          {% for User in Sep %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Oct</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Oct %}
+          {% for User in Oct %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Nov</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Nov %}
+          {% for User in Nov %}
+            <a href="/users/{{User.id}}" class="collection-item">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+      <div class="collection center-align col l1">
+        <h4>Dec</h4>
+        <div class="collection center-align" style="height: 500px; overflow-y:auto;">
+        {% if Dec %}
+          {% for User in Dec %}
+            <a href="/users/{{User.id}}" class="collection-item ">{{forloop.counter}} <span class="red-text">{{User.first_name}} {{User.last_name}}</span> {{User.dob}}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

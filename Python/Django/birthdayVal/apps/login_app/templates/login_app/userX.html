@@ -6,21 +6,24 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="{% static "css/materialize.css" %}">
-    <title>Users</title>
-    </head>
+    <title>{{User.first_name}} {{User.last_name}}</title>
+  </head>
   <body>
-    <h1 class="center-align">Users</h1>
     <div class="center-align">
       <a class="waves-effect waves-light btn" href="/logout"><i class="material-icons left">exit_to_app</i>Logout</a>
       <a class="waves-effect waves-light btn" href="/dash"><i class="material-icons left">home</i>Home</a>
     </div>
     <div class="row">
-      <div class="collection center-align col l4 offset-l4">
-        {% if Users %}
-          {% for User in Users %}
-            <a href="/users/{{User.id}}" class="collection-item"><span class="red-text">{{User.first_name}} {{User.last_name}}</span> ${{User.gold}}</a>
-          {% endfor %}
-        {% endif %}
+      <div class="col l4 offset-l4">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title center-align green-text text-lighten-3">{{User.first_name}} {{User.last_name}} <span class="yellow-text"> {{User.email}}</span></span>
+            <p>Date of Birth: {{User.dob}}</p>
+          </div>
+          <div class="card-action">
+            <a href="/users">All Users</a>
+          </div>
+        </div>
       </div>
     </div>
   </body>
