@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Basics 1</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function basic1() {
+        x = [];
+        x.push("Coding");
+        x.push("Dojo");
+        x.push("Rocks");
+        x.pop();
+        console.log(x);
+      }
+      basic1();
+      function basic2() {
+        const y = [];
+        console.log(y);
+        y.push(88);
+        console.log(y);
+      }
+      basic2();
+      function basic3() {
+        z = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+        for (var i = 0; i < z.length; i++) {
+          console.log(z[i]);
+        }
+        console.log("Names with length === 5");
+        for (var i = 0; i < z.length; i++) {
+          if (z[i].length === 5) {
+            console.log(z[i]);
+          }
+        }
+      }
+      basic3();
+      function basic4(string) {
+        console.log(string.toUpperCase());
+      }
+      basic4("im not yelling");
+    </script>
+  </body>
+</html>
