@@ -1,0 +1,7 @@
+1: undefined
+2: test is not a defined function
+3: only okay, only okay
+4: chicken, eat is not defined
+5: mean is not defined as a function, food is undefined, food is undefined
+6: undefined, undefined function, disco
+7: san jose, undefined, san jose
