@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Intermediate</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Part 1
+      console.log("Part 1");
+      function starString(n) {
+        string = "";
+        if (typeof n === "string") {
+          for (var i = 0; i < n.length; i++) {
+            string += n[0].toLowerCase();
+          }
+        }
+        else if (typeof n === "number") {
+          for (var i = 0; i < n; i++) {
+            string += "*";
+          }
+        }
+        else if (typeof n != "number" && typeof n != "string") {
+          string = "Not a string or number"
+        }
+        return string
+      }
+      console.log(starString(5));
+      // Part 2
+      console.log("Part 2");
+      function drawStars(array) {
+        for (var i = 0; i < array.length; i++) {
+          console.log(starString(array[i]));
+        }
+      }
+      arr = [4,6,8,1,2,3,4,5,10];
+      drawStars(arr);
+      // Part 3 added if statement to Part 1 function for strings
+      arr2 = ["banana", 2, "Kiwi", 3, "*Frank*", "Jimmy Smith", false];
+      drawStars(arr2);
+    </script>
+  </body>
+</html>
