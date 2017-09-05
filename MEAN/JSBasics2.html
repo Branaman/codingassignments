@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Basics 2</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function magic_multiply(x, y) {
+        if (typeof x === "number" && typeof y === "number") {
+          if (x === 0 && y === 0) {
+            answer = "All inputs 0"
+          }
+          else {
+            answer = x * y;
+          }
+        }
+        else if (typeof y === "string") {
+          answer = "Error: Can not multiply by string"
+        }
+        else if (typeof x === "string" && typeof y === "number") {
+          answer = x
+          for (var i = 1; i < y; i++) {
+            answer += x;
+          }
+        }
+        else if (typeof x === "object" && typeof y === "number") {
+          for (var i = 0; i < x.length; i++) {
+            x[i] = x[i]*y;
+          }
+          answer = x;
+        }
+        else {
+          answer = "Error: Couldnt handle request"
+        }
+        return answer;
+      }
+      console.log(magic_multiply(5,2));
+      //  10
+      console.log(magic_multiply(0,0));
+      //  "All inputs 0"
+      console.log(magic_multiply([1,2,3],2));
+      // => [2, 4, 6]
+      console.log(magic_multiply(7, "three"));
+      // "Error: Can not multiply by string"
+      console.log(magic_multiply("Brendo", 4));
+      // "BrendoBrendoBrendoBrendo"
+    </script>
+  </body>
+</html>
