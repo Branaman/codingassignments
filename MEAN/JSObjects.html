@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS Objects</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // let students = [
+      //   {name: 'Remy', cohort: 'Jan'},
+      //   {name: 'Genevieve', cohort: 'March'},
+      //   {name: 'Chuck', cohort: 'Jan'},
+      //   {name: 'Osmund', cohort: 'June'},
+      //   {name: 'Nikki', cohort: 'June'},
+      //   {name: 'Boris', cohort: 'June'}
+      // ];
+      // for (var i = 0; i < students.length; i++) {
+      //   let str = ""
+      //   for (var student in students[i]) {
+      //     let temp = student.toString();
+      //     str += temp[0].toUpperCase();
+      //     for (var j = 1; j < temp.length; j++) {
+      //       str += temp[j];
+      //     }
+      //     str += ": ";
+      //     str += students[i][student];
+      //     str += ", ";
+      //   }
+      //   console.log(str);
+      // }
+      let users = {
+          employees: [
+              {'first_name':  'Miguel', 'last_name' : 'Jones'},
+              {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+              {'first_name' : 'Nora', 'last_name' : 'Lu'},
+              {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+          ],
+          managers: [
+             {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+             {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+          ]
+       };
+       for (var variable in users) {
+         console.log(variable.toUpperCase());
+         for (var k = 0; k < users[variable].length; k++) {
+           let str = "";
+           let count = 0;
+           str += k+1;
+           str += " - ";
+           str += users[variable][k].last_name.toUpperCase();
+           str += ", "
+           str += users[variable][k].first_name.toUpperCase();
+           for (var key in users[variable][k]) {
+             count += users[variable][k][key].length;
+           }
+           str += " - ";
+           str += count;
+           console.log(str);
+         }
+       }
+    </script>
+  </body>
+</html>
