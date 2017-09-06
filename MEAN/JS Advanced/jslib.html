@@ -7,20 +7,46 @@
   <body>
     <script type="text/javascript">
       var _ = {
-        map: function(list, iteratee) {
-          //code here;
+        map: function(arr, callback) {
+          for (let i = 0; i < arr.length; i++) {
+            arr[i] = callback(arr[i]);
+          }
         },
-        reduce: function() {
-          // code here;
+        reduce: function(arr, callback, memo) {
+          var start = 0;
+          if (!memo){
+            memo = arr[0];
+            start = 1;
+          }
+          for (let i = start; i < arr.length; i++) {
+            memo = callback(arr[i], memo);
+          }
+          return memo;
         },
-        find: function() {
-          // code here;
+        find: function(arr, callback) {
+          for (let i = 0; i < arr.length; i++) {
+            if (callback(arr[i])) {
+              return arr[i]
+            }
+          }
         },
-        filter: function() {
-          // code here;
+        filter: function(arr, callback) {
+          var temp = [];
+          for (let i = 0; i < arr.length; i++) {
+            if (callback(arr[i])){
+              temp.push(arr[i]);
+            }
+          }
+          return temp;
         },
-        reject: function() {
-          // code here;
+        reject: function(arr, callback) {
+          var temp = [];
+          for (let i = 0; i < arr.length; i++) {
+            if (!callback(arr[i])){
+              temp.push(arr[i]);
+            }
+          }
+          return temp;
         }
       }
       var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
