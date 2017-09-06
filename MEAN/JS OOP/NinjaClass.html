@@ -21,6 +21,24 @@
           this.health += 10;
           console.log(this.name + " drank some sake, Health increased to " + this.health);
         }
+        this.punch = function(target){
+          if (target instanceof Ninja) {
+            target.health -= 5;
+            console.log(target.name + " was punched by " + this.name + " and lost 5 health!");
+          }
+          else {
+            console.log("Not a Ninja");
+          }
+        }
+        this.kick = function(target){
+          if (target instanceof Ninja) {
+            target.health -= 15*this.strength;
+            console.log(target.name + " was kicked by " + this.name + " and lost "+ this.strength*15 + " health!");
+          }
+          else {
+            console.log("Not a Ninja");
+          }
+        }
       }
       var ninja1 = new Ninja("Hyabusa");
       ninja1.sayName();
@@ -28,6 +46,20 @@
       ninja1.showStats();
       // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
       ninja1.drinkSake();
+      var blue_ninja = new Ninja("Goemon");
+      var red_ninja = new Ninja("Bill Gates");
+      var green_ninja = "Wall";
+      blue_ninja.sayName();
+      blue_ninja.showStats();
+      blue_ninja.drinkSake();
+      red_ninja.sayName();
+      red_ninja.showStats();
+      red_ninja.drinkSake();
+      red_ninja.punch(blue_ninja);
+      // -> "Goemon was punched by Bill Gates and lost 5 Health!"
+      blue_ninja.kick(red_ninja);
+      blue_ninja.kick(green_ninja);
+      // -> "Bill Gates was kicked by Goemon and lost 15 Health!"
     </script>
   </body>
 </html>
