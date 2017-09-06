@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DojoQuery</title>
+  </head>
+  <body>
+    <button type="button" id="butts" name="button">CLICK ME YOU FOOL</button>
+    <script type="text/javascript">
+      var button = document.getElementById("butts")
+      button.addEventListener("click", $Dojo);
+      ( function() {
+        var a = "Hi";
+        var b = 38;
+        function test() {
+         //some codes here
+        }
+        function add() {
+         //some codes here
+        $Dojo("butts").click(function() { console.log("The button was clicked!") });
+        $Dojo("butts").hover(function() { console.log("The button was hovered on!") });
+        }
+        test();
+      }());
+    </script>
+  </body>
+</html>
