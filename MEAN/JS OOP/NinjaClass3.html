@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Class 3</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Ninja Class
+      class Ninja {
+        constructor(name){
+          this.name = name;
+          this.health = 100;
+          this.speed = Math.floor(Math.random()*5);
+          this.strength = Math.floor(Math.random()*5);
+        }
+      }
+      // Sensei Class
+      class Sensei extends Ninja {
+        constructor(name, health, speed, strength){
+          super(name, health, speed, strength)
+          this.wisdom = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        }
+      }
+      // prototype methods
+      Ninja.prototype.sayName = function(){
+        console.log("Hello my ninja name is " + this.name);
+      }
+      Ninja.prototype.showStats = function(){
+        console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + this.speed + ", Strength: " + this.strength);
+      }
+      Ninja.prototype.drinkSake = function(){
+        this.health += 10;
+        console.log(this.name + " drank some sake, Health increased to " + this.health);
+      }
+      Ninja.prototype.punch = function(target){
+        if (target instanceof Ninja) {
+          target.health -= 5;
+          console.log(target.name + " was punched by " + this.name + " and lost 5 health!");
+        }
+        else {
+          console.log("Not a Ninja");
+        }
+      }
+      Ninja.prototype.kick = function(target){
+        if (target instanceof Ninja) {
+          target.health -= 15*this.strength;
+          console.log(target.name + " was kicked by " + this.name + " and lost "+ this.strength*15 + " health!");
+        }
+        else {
+          console.log("Not a Ninja");
+        }
+      }
+      Sensei.prototype.speakWisdom = function(){
+        console.log(this.wisdom);
+        this.drinkSake();
+      }
+      // initialization
+      var ninja1 = new Ninja("Hyabusa");
+      ninja1.sayName();
+      // -> "My ninja name is Hyabusa!"
+      ninja1.showStats();
+      // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+      ninja1.drinkSake();
+      var blue_ninja = new Ninja("Goemon");
+      var red_ninja = new Ninja("Bill Gates");
+      var green_ninja = "Wall";
+      blue_ninja.sayName();
+      blue_ninja.showStats();
+      blue_ninja.drinkSake();
+      red_ninja.sayName();
+      red_ninja.showStats();
+      red_ninja.drinkSake();
+      red_ninja.punch(blue_ninja);
+      // -> "Goemon was punched by Bill Gates and lost 5 Health!"
+      blue_ninja.kick(red_ninja);
+      blue_ninja.kick(green_ninja);
+      let super_sensei = new Sensei("Master Splinter");
+      super_sensei.speakWisdom();
+      super_sensei.showStats();
+    </script>
+  </body>
+</html>
