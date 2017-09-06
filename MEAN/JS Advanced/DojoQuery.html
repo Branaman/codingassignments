@@ -6,22 +6,21 @@
   </head>
   <body>
     <button type="button" id="butts" name="button">CLICK ME YOU FOOL</button>
+    <button type="button" id="bigbutts" name="button">NO HOVER OVER ME YOU FOOL</button>
     <script type="text/javascript">
-      var button = document.getElementById("butts")
-      button.addEventListener("click", $Dojo);
-      ( function() {
-        var a = "Hi";
-        var b = 38;
-        function test() {
-         //some codes here
-        }
-        function add() {
-         //some codes here
-        $Dojo("butts").click(function() { console.log("The button was clicked!") });
-        $Dojo("butts").hover(function() { console.log("The button was hovered on!") });
-        }
-        test();
-      }());
+      $Dojo("butts").click(function() { console.log("The button was clicked!") });
+      $Dojo("bigbutts").hover(function() { console.log("The button was hovered on!") });
+      function $Dojo(id) {
+        this.buttonID = document.getElementById(id);
+        this.click = function (callback) {
+        this.buttonID.addEventListener("click", callback);
+        };
+        this.hover = function (hoverin, hoverout) {
+        this.buttonID.addEventListener("mouseover", hoverin);
+        this.buttonID.addEventListener("mouseout", hoverout);
+        };
+        return this;
+      }
     </script>
   </body>
 </html>
