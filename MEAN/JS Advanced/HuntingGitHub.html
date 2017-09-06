@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hunting Github</title>
+  </head>
+  <body>
+    <button id="doomclicker">WHO AM I?!</button>
+    <div id="nameplace"></div>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+      var name;
+      $.get("https://api.github.com/users/branaman", displayName)
+      function displayName(data) {
+        name = data.name
+      }
+      var button = document.getElementById("doomclicker")
+      button.addEventListener("click", whatToDoOnClick);
+      function whatToDoOnClick() {
+        let new_item = document.createElement("h1");
+        new_item.innerHTML = name;
+        document.getElementById("nameplace").appendChild(new_item);
+      }
+    </script>
+  </body>
+</html>
