@@ -1,4 +1,4 @@
-MEAN/NODE/node_modules/*
-MEAN/NODE/bower_components/*
+MEAN/NODE/node_modules*
+MEAN/NODE/bower_components*
 Python/python_stack/myEnvironments/*
 Python/Django/sprinting_sloths/*
