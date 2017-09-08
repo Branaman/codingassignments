@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fib + Nacci</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="1920" height="1080"></canvas>
+    <script type="text/javascript">
+      function fib() {
+        current = 1;
+        prev = 1;
+        prev2 = 0;
+        function nacci() {
+          current = prev2+prev;
+          prev2 = prev;
+          prev = current;
+          return current
+        }
+        return nacci
+      }
+      var fibCounter = fib();
+      var c = canvas.getContext('2d');
+      var m,n,size, t;
+      m = 32;
+      n = 32;
+      size = 8;
+      t = 0;
+      function loopydoop() {
+        var current = 1;
+        var prev = 1;
+        var prev2 = 0;
+        var sin = Math.sin, cos = Math.cos;
+        c.clearRect(0,0, canvas.width, canvas.height);
+        for (var i = 0; i < m; i++) {
+          for (var j = 0; j < n; j++) {
+            var u = i/(m);
+            var v = j/(m);
+            var x = u*canvas.width;
+            var y = v*canvas.width;
+            size = (cos(t)+2)*8;
+            c.beginPath();
+            c.arc(x+(current), y, size, 0, 2*Math.PI);
+            c.fill();
+          }
+        }
+        t += .01
+        requestAnimationFrame(loopydoop);
+      }
+      loopydoop(10, 10, 10)
+    </script>
+  </body>
+</html>
