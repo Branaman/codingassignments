@@ -1,19 +1,20 @@
 {
-  "name": "hello_express",
+  "name": "counter",
   "version": "1.0.0",
-  "description": "",
+  "description": "counter app",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.17.2",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
-    "express-session": "^1.15.5"
+    "express-session": "^1.15.5",
+    "path": "^0.12.7"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Matt",
   "license": "ISC"
 }
