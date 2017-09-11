@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document). ready(function (){
+      var socket  = io.connect();
+      var logged_in = false;
+      var users = [];
+      $('#reg_button').click(function (){
+        socket.emit( "user_registered", {user_name: $('#user_name').val()});
+        document.getElementById("wrapper").innerHTML = "";
+        logged_in = true;
+      });
+      socket.on( 'new_msg', function (data){
+        let chat_msg = document.createElement("p")
+        chat_msg.innerHTML = data.id+":"+data.msg;
+        document.getElementById('chats').appendChild(chat_msg);
+      });
+      socket.on( 'all_sockets', function (data){
+        var chatbot = document.createElement("div");
+        chatbot.setAttribute("id", "chatbox");
+        var chats = document.createElement("p");
+        chats.setAttribute("id", "chats");
+        document.getElementById('wrapper').appendChild(chatbot);
+        document.getElementById('chatbox').appendChild(chats);
+        let chat_field = document.createElement("input");
+        let chat_button = document.createElement("button");
+        chat_field.setAttribute("id", "msg");
+        chat_button.setAttribute("id", "send_chat");
+        chat_button.setAttribute("class", "waves-effect waves-light btn col l2 offset-l5");
+        chat_button.innerHTML = "Send Chat";
+        document.getElementById("chatbox").appendChild(chat_field);
+        document.getElementById("chatbox").appendChild(chat_button);
+        $('#send_chat').click(function (){
+          socket.emit( "sent_msg", {chat: $('#msg').val()});
+        });
+        for (var i = 0; i < data.clients.length; i++) {
+          users.push(data.clients[i]);
+          let user = document.createElement("h5");
+          user.setAttribute("id", data.clients[i].id);
+          user.innerHTML = data.clients[i].user_name;
+          document.getElementById('users').appendChild(user);
+          let chat_msg = document.createElement("p");
+          chat_msg.innerHTML = data.clients[i].user_name +" has joined the channel";
+          document.getElementById('chats').appendChild(chat_msg);
+          document.getElementById('users').style.visibility = "visible"
+        };
+      });
+      socket.on('disconnect_event', function(data){
+        if (logged_in) {
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].id === data.id){
+              users.pop(i);
+              let chat_msg = document.createElement("p");
+              chat_msg.innerHTML = data.user_name +" has left the channel";
+              document.getElementById('chats').appendChild(chat_msg);
+              document.getElementById(data.id).remove();
+            }
+          };
+        };
+      });
+      socket.on( 'user_joined', function (data){
+        if (logged_in) {
+          users.push({id: data.id, user_name: data.user_name});
+          let chat_msg = document.createElement("p");
+          chat_msg.innerHTML = data.user_name +" has joined the channel";
+          document.getElementById('chats').appendChild(chat_msg);
+          let user = document.createElement("h5");
+          user.setAttribute("id", data.id);
+          user.innerHTML = data.user_name;
+          document.getElementById('users').appendChild(user);
+        };
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <div class="row">
+      <div id="users" style="visibility:hidden" class="col l3">
+        <h3>Online Users</h3>
+      </div>
+      <div id="wrapper" class="col l6">
+        <h1>Welcome to Matts Group Chat!</h1>
+        Please enter your username: <input type="text" id="user_name" name="user_name" value="">
+        <button class="waves-effect waves-light btn col l2 offset-l5" type="button" id="reg_button" name="button">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>

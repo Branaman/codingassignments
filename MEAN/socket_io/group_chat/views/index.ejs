@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document). ready(function (){
+      var socket  = io.connect();
+      var logged_in = false;
+      $('#reg_button').click(function (){
+        socket.emit( "user_registered", {user_name: $('#user_name').val()});
+        document.getElementById("wrapper").innerHTML = "";
+        logged_in = true;
+      });
+      socket.on( 'new_msg', function (data){
+        console.log(data.id + " " + data.msg);
+        let chat_msg = document.createElement("p");
+        chat_msg.innerHTML = data.msg;
+        document.getElementById(data.id+"msgs").appendChild(chat_msg);
+      });
+      socket.on( 'all_sockets', function (data){
+        for (var i = 0; i < data.clients.length; i++) {
+          let new_user = document.createElement("div");
+          new_user.setAttribute("class", "card blue-grey darken-1");
+          new_user.setAttribute("id", data.clients[i].id);
+          let new_username = document.createElement("h1");
+          new_username.innerHTML = data.clients[i].user_name;
+          new_username.setAttribute("class", "card-title white-text");
+          document.getElementById("wrapper").appendChild(new_user);
+          document.getElementById(data.clients[i].id).appendChild(new_username);
+          let msg_field = document.createElement("div");
+          msg_field.setAttribute("id", data.clients[i].id+"msgs");
+          msg_field.setAttribute("class", "card-content white-text");
+          document.getElementById(data.clients[i].id).appendChild(msg_field);
+          if (data.clients[i].user) {
+            let chat_field = document.createElement("input");
+            let chat_button = document.createElement("button");
+            chat_field.setAttribute("id", "msg");
+            chat_field.setAttribute("class", "autocomplete-input")
+            chat_button.setAttribute("id", "send_chat");
+            chat_button.setAttribute("class", "waves-effect waves-light btn col l2 offset-l5");
+            chat_button.innerHTML = "Send Chat";
+            document.getElementById(data.clients[i].id).appendChild(chat_field);
+            document.getElementById(data.clients[i].id).appendChild(chat_button);
+            $('#send_chat').click(function (){
+              console.log("clicky da button");
+              socket.emit( "sent_msg", {chat: $('#msg').val()});
+            });
+          };
+        };
+      });
+      socket.on('disconnect_event', function(data){
+        if (logged_in) {
+          var myElem = document.getElementById(data.id);
+          if (myElem != null){
+          document.getElementById(data.id).remove();
+          };
+        };
+      });
+      socket.on( 'user_joined', function (data){
+        if (logged_in) {
+          var myElem = document.getElementById(data.id);
+          if (myElem === null){
+            let new_user = document.createElement("div");
+            new_user.setAttribute("id", data.id);
+            new_user.setAttribute("class", "card blue-grey darken-1");
+            let new_username = document.createElement("h1");
+            new_username.innerHTML = data.user_name;
+            new_username.setAttribute("class", "card-title white-text");
+            document.getElementById("wrapper").appendChild(new_user);
+            document.getElementById(data.id).appendChild(new_username);
+            let msg_field = document.createElement("div");
+            msg_field.setAttribute("id", data.id+"msgs");
+            msg_field.setAttribute("class", "card-content white-text");
+            document.getElementById(data.id).appendChild(msg_field);
+          };
+        };
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <div class="row">
+      <div id="wrapper" class="col l6 offset-l3">
+        <h1>Welcome to Matts Group Chat!</h1>
+        Please enter your username: <input type="text" id="user_name" name="user_name" value="">
+        <button class="waves-effect waves-light btn col l2 offset-l5" type="button" id="reg_button" name="button">Submit</button>
+      </div>
+    </div>
+  </body>
+</html>
