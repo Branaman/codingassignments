@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Survey Form</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+    $(document). ready(function (){
+      var socket  = io.connect();
+      $( '#submit').click(function (){
+        socket.emit( "posting_form", {name: $('#name').val(), location: $('#location').val(), fav_lang: $('#fav_lang').val(), comments: $('#comments').val()});
+      });
+      socket.on( 'updated_message', function (data){
+        let new_item = document.createElement("h1");
+        new_item.innerHTML = data.response;
+        document.getElementById("response").appendChild(new_item);
+      });
+    })
+    </script>
+  </head>
+  <body>
+    <div id="response">
+
+    </div>
+    Your Name:<input type="text" id="name" value="" required>
+    Dojo Location:<input type="text" id="location" value="" required>
+    Favorit Language:<select id="fav_lang">
+      <option value="Java">Java</option>
+      <option value="C++">C++</option>
+      <option value="Python">Python</option>
+      <option value="JavaScript">JavaScript</option>
+    </select>
+    Comments (optional)<input type="text" id="comments" value="">
+    <input type="submit" id="submit" value="Submit">
+  </body>
+</html>

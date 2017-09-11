@@ -1,0 +1,10 @@
+{
+  "name": "Socket_test",
+  "dependencies": {
+    "body-parser": "^1.18.0",
+    "ejs": "1.0.0",
+    "express": "~4.10.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.3"
+  }
+}
