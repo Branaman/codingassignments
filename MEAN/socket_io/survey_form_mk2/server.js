@@ -11,10 +11,6 @@ app.get('/', function(req, res) {
   res.render("survey");
 })
 // The user fills out the form and submits
-app.post('/results', function(req, res){
-  console.log("POST DATA", req.body);
-  res.render("results", req.body)
-})
 // The form information is EMITTED to the server with the event name "posting_form"
 var server = app.listen(8000, function() {
  console.log("listening on port 8000");
