@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 var path = require('path');
-mongoose.connect('mongodb://localhost/choopas');
+mongoose.connect('mongodb://localhost/message_board');
 var models_path =path.join( __dirname , '/../models');
 fs.readdirSync(models_path).forEach(function(file) {
   if(file.indexOf('.js') > 0) {
